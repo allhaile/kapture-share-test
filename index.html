@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<head>
+	<!-- <script src="script.js"></script> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<html style="background: blue;">
+
+<body>	
+
+<button id="share-button" style="height: 300px;
+  width: 300px;
+  background-color: gray; 
+  color: white; 
+  text-align: center;
+  font-size: 48px;
+  position: fixed;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  " > <h1>Share</h1> </button>
+</body>
+
+
+</html>
+<script>
+let shareButton = document.getElementById('share-button');
+  console.log(shareButton)
+
+
+  shareButton.addEventListener('click', event => {
+    console.log("button has been clicked")
+  if (navigator.share) {
+    navigator.share({
+      title: 'WebShare API Demo',
+      url: 'https:twitter.com'
+    }).then(() => {
+      console.log('Thanks for sharing!');
+    })
+    .catch(console.error);
+  } else {
+    // fallback
+  }
+
+});
+</script>
+
+
+
